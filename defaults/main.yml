@@ -1,6 +1,6 @@
 ---
 # defaults file for gluster.cluster
-volname: glustervol
+gluster_cluster_volume: glustervol
 transport: tcp
 disperse_count: 0
 arbiter_count: 0

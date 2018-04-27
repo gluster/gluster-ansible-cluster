@@ -1,12 +1,11 @@
 ---
-
 # Create a gluster volume
 - name: Create volume
   import_role:
     name: "gluster.cluster/roles/volume-create"
   when: gluster_cluster_brick_dirs is defined
   tags:
-    - gluster_volume_create
+    - volume_create
 
 # Start a gluster volume
 - name: Start volume
@@ -14,4 +13,4 @@
     name: "gluster.cluster/roles/volume-start"
   when: gluster_cluster_volume_name is defined
   tags:
-    - gluster_volume_start
+    - volume_start

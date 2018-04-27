@@ -15,7 +15,7 @@ galaxy_info:
     versions:
       - 7.3 or above
   galaxy_tags:
-    - volume
-    - bricks
+    - cluster_volume
+    - cluster_bricks
 
 dependencies: []

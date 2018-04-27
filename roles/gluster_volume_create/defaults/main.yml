@@ -1,8 +1,8 @@
 ---
-# defaults file for gluster-volume-create
-volname: glustervol
-transport: tcp
-disperse_count: 0
-arbiter_count: 0
-redundancy_count: 0
-disperse: no
+# defaults file for gluster_volume_create
+# volname: glustervol
+# transport: tcp
+# disperse_count: 0
+# arbiter_count: 0
+# redundancy_count: 0
+# disperse: no
