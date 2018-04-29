@@ -1,10 +1,4 @@
 ---
-# tasks file for gluster_volume_create
-# - name: Peer probe the nodes
-#   gluster_peer:
-#         state: present
-#         nodes: "{{ gluster_hosts }}"
-
 - name: Create a volume
   gluster_volume:
         state: present
@@ -18,12 +12,3 @@
         disperse_count: "{{ disperse_count }}"
         redundancy_count: "{{ redundancy_count }}"
         force: "{{ force | default('no') }}"
-
-- name: Start the volume if configured
-  gluster_volume:
-        state: started
-        volume: "{{ gluster_cluster_volume }}"
-        force: "{{ force | default(False) }}"
-  register: result
-  failed_when: "result.rc != 0 and ('already started' not in result.msg)"
-  when: start is defined and start == 'yes'

@@ -6,11 +6,3 @@
   when: gluster_cluster_brick_dirs is defined
   tags:
     - volume_create
-
-# Start a gluster volume
-- name: Start volume
-  import_role:
-    name: "gluster.cluster/roles/volume-start"
-  when: gluster_cluster_volume_name is defined
-  tags:
-    - volume_start
