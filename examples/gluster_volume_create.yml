@@ -12,9 +12,7 @@
     gluster_cluster_replica_count: 2
     gluster_cluster_force: 'yes'
     gluster_cluster_transport: 'tcp'
-    gluster_cluster_bricks:
-      - '/mnt/brick1/b1'
-      - '/mnt/brick1/b2'
+    gluster_cluster_bricks: '/mnt/brick1/b1,/mnt/brick2/b2'
 
   roles:
     - gluster.cluster
