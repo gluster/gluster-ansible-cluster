@@ -8,14 +8,10 @@
     gluster_cluster_hosts:
       - 10.70.41.212
       - 10.70.42.156
-    #   - 10.70.42.69
-    #   - 10.70.43.200
-    #   - 10.70.42.25
     gluster_cluster_volume: testvol
-    # replica_count: 2
-    force: 'yes'
-    start: 'yes'
-    transport: 'tcp'
+    gluster_cluster_replica_count: 2
+    gluster_cluster_force: 'yes'
+    gluster_cluster_transport: 'tcp'
     gluster_cluster_bricks:
       - '/mnt/brick1/b1'
       - '/mnt/brick1/b2'

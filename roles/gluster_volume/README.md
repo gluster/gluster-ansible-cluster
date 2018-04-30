@@ -1,7 +1,7 @@
-gluster_volume_create
-=====================
+gluster_volume
+==============
 
-This role helps the user to create a gluster volume.
+This role helps the user to manage a gluster volume.
 Volume can be of any type - replicate, distributed-replicate, arbiter ...
 
 Requirements
@@ -16,21 +16,20 @@ The following are the variables available for this role
 
 | Name | Required | Default value | Choices | Comments |
 | --- | --- | --- | --- | --- |
-| arbiter_count | no | |  | Number of arbiter bricks to use (Only for arbiter volume types). |
+| gluster_cluster_arbiter_count | no | |  | Number of arbiter bricks to use (Only for arbiter volume types). |
 | gluster_cluster_bricks | yes | |   | Bricks that form the GlusterFS volume. The format of the bricks would be hostname:mountpoint/brick_dir alternatively user can provide just mountpoint/birck_dir, in such a case gluster_hosts variable has to be set |
-| disperse_count | | |  | Disperse count for the volume. If this value is specified, a dispersed volume will be  created |
-| force | no | | **yes** / **no** | Force option will be used while creating a volume, any warnings will be suppressed. |
+| gluster_cluster_disperse_count | | |  | Disperse count for the volume. If this value is specified, a dispersed volume will be  created |
+| gluster_cluster_force | no | | **yes** / **no** | Force option will be used while creating a volume, any warnings will be suppressed. |
 | gluster_cluster_hosts | yes | |  | Contains the list of hosts that have to be peer probed. |
-| redundancy_count | no | |  | Specifies the number of redundant bricks while creating a disperse volume. If redundancy count is missing an optimal value is computed. |
-| replica_count |  | | **2** / **3** | Replica count while creating a volume. Currently replica 2 and replica 3 are supported. |
-| start | no | | **yes** / **no** | Starts the volume upon creation if start is ste to yes. |
-| state | yes | | **present** / **absent** / **started** / **stopped** / **set** | If value is present volume will be created. If value is absent, volume will be deleted. If value is started, volume will be started. If value is stopped, volume will be stopped. |
-| transport | no | tcp | **tcp** / **rdma** / **tcp,rdma** | The transport type for the volume. |
+| gluster_cluster_redundancy_count | no | |  | Specifies the number of redundant bricks while creating a disperse volume. If redundancy count is missing an optimal value is computed. |
+| gluster_cluster_replica_count |  | | **2** / **3** | Replica count while creating a volume. Currently replica 2 and replica 3 are supported. |
+| gluster_cluster_state | yes | | **present** / **absent** / **started** / **stopped** / **set** | If value is present volume will be created. If value is absent, volume will be deleted. If value is started, volume will be started. If value is stopped, volume will be stopped. |
+| gluster_cluster_transport | no | tcp | **tcp** / **rdma** / **tcp,rdma** | The transport type for the volume. |
 | gluster_cluster_volume | yes | |  | Name of the volume. Refer GlusterFS documentation for valid characters in a volume name. |
 
 ### Tags
 --------
-volume_create
+cluster_volume
 
 ### Example Playbook
 --------------------
@@ -50,8 +49,7 @@ Create a GlusterFS volume
       - 10.70.41.212
       - 10.70.42.156
     gluster_cluster_volume: testvol
-    force: 'yes'
-    start: 'yes'
+    gluster_cluster_force: 'yes'
     gluster_cluster_bricks:
       - '/mnt/brick1/b1'
       - '/mnt/brick1/b2'
@@ -65,7 +63,7 @@ The above playbook will be run as part of gluster.cluster. However if you
 want to run just the volume_create role use the tag volume_create.
 
 For example:
-\# ansible-playbook -i inventory_file playbook_file.yml --tags volume_create
+\# ansible-playbook -i inventory_file playbook_file.yml --tags cluster_volume
 
 License
 -------

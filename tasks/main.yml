@@ -5,4 +5,4 @@
     name: "gluster.cluster/roles/volume-create"
   when: gluster_cluster_brick_dirs is defined
   tags:
-    - volume_create
+    - cluster_volume

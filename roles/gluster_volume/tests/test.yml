@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - gluster_volume_create
+    - gluster_volume
