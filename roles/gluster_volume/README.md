@@ -17,7 +17,7 @@ The following are the variables available for this role
 | Name | Required | Default value | Choices | Comments |
 | --- | --- | --- | --- | --- |
 | gluster_cluster_arbiter_count | no | |  | Number of arbiter bricks to use (Only for arbiter volume types). |
-| gluster_cluster_bricks | yes | |   | Bricks that form the GlusterFS volume. The format of the bricks would be hostname:mountpoint/brick_dir alternatively user can provide just mountpoint/birck_dir, in such a case gluster_hosts variable has to be set |
+| gluster_cluster_bricks | yes | |   | Bricks that form the GlusterFS volume. The format of the bricks is mountpoint/brick_dir |
 | gluster_cluster_disperse_count | | |  | Disperse count for the volume. If this value is specified, a dispersed volume will be  created |
 | gluster_cluster_force | no | | **yes** / **no** | Force option will be used while creating a volume, any warnings will be suppressed. |
 | gluster_cluster_hosts | yes | |  | Contains the list of hosts that have to be peer probed. |
@@ -50,9 +50,7 @@ Create a GlusterFS volume
       - 10.70.42.156
     gluster_cluster_volume: testvol
     gluster_cluster_force: 'yes'
-    gluster_cluster_bricks:
-      - '/mnt/brick1/b1'
-      - '/mnt/brick1/b2'
+    gluster_cluster_bricks: '/mnt/brick1/b1,/mnt/brick1/b2'
 
   roles:
     - gluster.cluster

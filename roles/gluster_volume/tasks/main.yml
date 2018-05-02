@@ -1,7 +1,7 @@
 ---
 - name: Create a volume
   gluster_volume:
-        state: present
+        state: "{{ gluster_cluster_state | default('present') }}"
         volume: "{{ gluster_cluster_volume }}"
         bricks: "{{ gluster_cluster_bricks }}"
         host: "{{ gluster_cluster_hosts }}"
