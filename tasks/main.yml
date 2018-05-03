@@ -1,0 +1,8 @@
+---
+# Create a gluster volume
+- name: Create volume
+  import_role:
+    name: "gluster.cluster/roles/volume-create"
+  when: gluster_cluster_brick_dirs is defined
+  tags:
+    - cluster_volume
