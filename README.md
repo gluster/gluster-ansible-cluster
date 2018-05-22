@@ -5,9 +5,8 @@ This role helps the user to set up a GlusterFS cluster, manage gluster volumes a
 The gluster.cluster role has multiple sub-roles which are invoked depending on the variables that are set.
 The sub-roles are:
 
-  1. gluster_volume - manage gluster volumes(create, delete, start, stop)
-  2. gluster_volume_set - set specific options for gluster volumes
-  3. gluster_brick - perform add/remove/replace operations on existing bricks
+  1. gluster_volume - manage gluster volumes(create, delete, start, stop, set)
+  2. gluster_brick - perform add/remove/replace operations on existing bricks
 
 Requirements
 ------------
@@ -36,12 +35,9 @@ These are the superset of role_varibles. They are explained further in the respe
 | gluster_cluster_transport | no | tcp | **tcp** / **rdma** / **tcp,rdma** | The transport type for the volume. |
 | gluster_cluster_volume | yes | |  | Name of the volume. Refer GlusterFS documentation for valid characters in a volume name. |
 
-### gluster_volume_set
-----------------------
-//TODO
-
 ### gluster_brick
 -----------------
+
 //TODO
 
 ### Example Playbook
@@ -72,7 +68,7 @@ Create a GlusterFS volume and set specific options.
     gluster_cluster_arbiter_count: 1
 
     # variables to set specific volume options
-    gluster_cluster_option: 'performance.cache-size:256MB'
+    gluster_cluster_options: 'performance.cache-size:256MB'
 
   roles:
     - gluster.cluster
