@@ -27,17 +27,24 @@ The following are the variables available for this role
 | gluster_cluster_transport | no | tcp | **tcp** / **rdma** / **tcp,rdma** | The transport type for the volume. |
 | gluster_cluster_volume | yes | |  | Name of the volume. Refer GlusterFS documentation for valid characters in a volume name. |
 
-#### Variables specific to the respective volume type
+
+### Variables specific to the respective volume type
 -----------------------------------------------------
 
 ##### Arbitrated-Replicated Volume
+| Name | Required | Default value | Choices | Comments |
+| --- | --- | --- | --- | --- |
 | gluster_cluster_replica_count |  | | **2** / **3** | Replica count while creating a volume. Currently replica 2 and replica 3 are supported. |
 | gluster_cluster_arbiter_count | no | |  | Number of arbiter bricks to use (Only for arbiter volume types). |
 
 ##### Distributed-Replicated Volume
+| Name | Required | Default value | Choices | Comments |
+| --- | --- | --- | --- | --- |
 | gluster_cluster_replica_count |  | | **2** / **3** | Replica count while creating a volume. Currently replica 2 and replica 3 are supported. |
 
 ##### Distributed-Dispersed Volume
+| Name | Required | Default value | Choices | Comments |
+| --- | --- | --- | --- | --- |
 | gluster_cluster_disperse_count | | |  | Disperse count for the volume. If this value is specified, a dispersed volume will be  created |
 | gluster_cluster_redundancy_count | no | |  | Specifies the number of redundant bricks while creating a disperse volume. If redundancy count is missing an optimal value is computed. |
 
