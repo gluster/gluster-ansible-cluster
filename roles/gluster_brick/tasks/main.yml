@@ -1,7 +1,7 @@
 ---
 - name: Add bricks to a volume
   gluster_volume:
-        state: "{{ gluster_cluster_state | default('present') }}"
+        state: present
         volume: "{{ gluster_cluster_volume }}"
         bricks: "{{ gluster_cluster_new_bricks }}"
         cluster: "{{ gluster_cluster_hosts }}"
