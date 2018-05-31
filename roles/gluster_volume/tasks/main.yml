@@ -4,7 +4,7 @@
         state: "{{ gluster_cluster_state | default('present') }}"
         volume: "{{ gluster_cluster_volume }}"
         bricks: "{{ gluster_cluster_bricks }}"
-        host: "{{ gluster_cluster_hosts }}"
+        cluster: "{{ gluster_cluster_hosts }}"
         transport: "{{ gluster_cluster_transport | default('tcp') }}"
         replicas: "{{ gluster_cluster_replica_count | default(0) }}"
         arbiters: "{{ gluster_cluster_arbiter_count | default(0)}}"
