@@ -17,7 +17,7 @@ The following are the variables available for this role
 | Name | Choices | Default value | Comments |
 | --- | --- | --- | --- |
 | gluster_cluster_arbiter_count | | UNDEF | Number of arbiter bricks to use (Only for arbiter volume types). |
-| gluster_cluster_bricks | | UNDEF | Bricks that form the GlusterFS volume. The format of the bricks would be hostname:mountpoint/brick_dir alternatively user can provide just mountpoint/birck_dir, in such a case gluster_hosts variable has to be set |
+| gluster_cluster_bricks | | UNDEF | Brick paths on servers. Multiple brick paths can be separated by commas. |
 | gluster_cluster_disperse_count | | UNDEF | Disperse count for the volume. If this value is specified, a dispersed volume will be  created |
 | gluster_cluster_force | **yes** / **no** | no | Force option will be used while creating a volume, any warnings will be suppressed. |
 | gluster_cluster_hosts | | | Contains the list of hosts that have to be peer probed. |
