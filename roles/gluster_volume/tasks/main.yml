@@ -1,4 +1,13 @@
 ---
+- name: Start glusterd on the nodes if not already started
+  service:
+       state: started
+       name: glusterd
+       enabled: yes
+  delegate_to: "{{ item }}"
+  run_once: true
+  with_items: "{{ gluster_cluster_hosts }}"
+
 - name: Create a volume
   gluster_volume:
         state: "{{ gluster_cluster_state | default('present') }}"
