@@ -66,11 +66,10 @@ Create a GlusterFS volume and set specific options.
     gluster_cluster_volume: testvol
     gluster_cluster_transport: 'tcp'
     gluster_cluster_force: 'yes'
-    gluster_cluster_bricks: '/mnt/brick1/b1,/mnt/brick1/b2'
+    gluster_cluster_bricks: '/mnt/brick1/store,/mnt/brick2/store'
 
     # variables to create specific type of the volume
-    gluster_cluster_replica_count: 3
-    gluster_cluster_arbiter_count: 1
+    gluster_cluster_replica_count: 2
 
     # variables to set specific volume options
     gluster_cluster_options: 'performance.cache-size:256MB'
