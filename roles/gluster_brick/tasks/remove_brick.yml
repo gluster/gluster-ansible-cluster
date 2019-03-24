@@ -5,7 +5,7 @@
   when: gluster_cluster_remove_bricks is defined
 # TODO: Handle the remove_brick_flag in the upstream gluster_volume module.
 
-- name: Add bricks to a volume
+- name: Add or Remove bricks to/from a volume
   gluster_volume:
         state: present
         volume: "{{ gluster_cluster_volume }}"
