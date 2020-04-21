@@ -72,7 +72,7 @@ Create a GlusterFS volume and set specific options.
     gluster_cluster_replica_count: 2
 
     # variables to set specific volume options
-    gluster_cluster_options: 'performance.cache-size:256MB'
+    gluster_cluster_options: {'performance.cache-size':'256MB'}
 
   roles:
     - gluster.cluster
