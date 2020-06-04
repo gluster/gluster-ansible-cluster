@@ -9,11 +9,20 @@
   with_items: "{{ gluster_cluster_hosts }}"
 
 - name: Create a volume
+  vars:
+        # Get the private ips for each host as a string where each host ip is seperated by a comma
+        glusterfs_cluster_private_ips: "{{ansible_play_hosts | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }}"
+        # Convert it to a list
+        gluster_cluster_private_hosts: "{{ glusterfs_cluster_private_ips.split(',') }}"
   gluster_volume:
         state: "{{ gluster_cluster_state | default('present') }}"
         volume: "{{ gluster_cluster_volume }}"
         bricks: "{{ gluster_cluster_bricks }}"
-        cluster: "{{ gluster_cluster_hosts }}"
+        # Since cluster, is required for only probbing the nodes in the internal network, we use the private ips. 
+        # Else in aws, the /etc/hosts needs to be modified. 
+        # This is needed as we need to public ips to check if the glusterd service is running in the earlier task and therefore
+        # the gluster_cluster_hosts cannot be modified. 
+        cluster: "{{ gluster_cluster_private_hosts if gluster_cluster_private_hosts is defined and gluster_cluster_private_hosts | length > 0 else gluster_cluster_hosts}}"
         transport: "{{ gluster_cluster_transport | default('tcp') }}"
         replicas: "{{ gluster_cluster_replica_count | default(0) }}"
         arbiters: "{{ gluster_cluster_arbiter_count | default(0)}}"
