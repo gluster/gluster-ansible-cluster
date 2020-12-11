@@ -33,10 +33,10 @@ jobs:
         run: sudo mkdir -p /etc/ansible/roles
             
       - name: clone the repo
-        run: git clone https://github.com/pkesavap/gluster-ansible-cluster.git && cd gluster-ansible-infra
+        run: git clone https://github.com/pkesavap/gluster-ansible-cluster.git && cd gluster-ansible-cluster
       
       - name: Install glusteransible-infra rpm
-        run: sudo cp -r ./../gluster-ansible-infra /etc/ansible/roles/gluster.cluster 
+        run: sudo cp -r ./../gluster-ansible-cluster /etc/ansible/roles/gluster.cluster 
         
       - name:  Initiate Test for gluster-ansible
         run: sudo ansible-playbook ./tests/test.yml
