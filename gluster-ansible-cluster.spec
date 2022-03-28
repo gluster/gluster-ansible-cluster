@@ -11,7 +11,7 @@ Source0:   %{url}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 License:   GPLv3
 BuildArch: noarch
 
-Requires:  ansible >= 2.6
+Requires:  ansible-core >= 2.12
 
 %description
 Collection of Ansible roles for the creating and managing GlusterFS volumes.
