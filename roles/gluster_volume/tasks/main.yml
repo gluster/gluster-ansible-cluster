@@ -9,6 +9,8 @@
   with_items: "{{ gluster_cluster_hosts }}"
 
 - name: Create a volume
+  collections:
+        - gluster.gluster
   gluster_volume:
         state: "{{ gluster_cluster_state | default('present') }}"
         volume: "{{ gluster_cluster_volume }}"
